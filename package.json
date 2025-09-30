@@ -1,0 +1,23 @@
+{
+  "name": "playwrightworkbench",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlbertJ12/PlaywrightWorkbench.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AlbertJ12/PlaywrightWorkbench/issues"
+  },
+  "homepage": "https://github.com/AlbertJ12/PlaywrightWorkbench#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.55.1",
+    "@types/node": "^24.6.0"
+  }
+}
