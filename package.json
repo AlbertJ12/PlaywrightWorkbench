@@ -1,15 +1,24 @@
 {
-  "name": "PlaywrightWorkbench",
+  "name": "playwright-workbench",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:chromium": "npx playwright test --browser=chromium",
+    "test:first": "npx playwright test --grep @first",
+    "test:firefox": "npx playwright test --browser=firefox",
+    "test:webkit": "npx playwright test --browser=webkit",
+    "test:local": "BASE_URL=http://localhost:3000 npx playwright test",
+    "test:report": "npx playwright test && npx playwright show-report",
+    "test:ui": "npx playwright test --ui"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.18.3",
   "devDependencies": {
-    "@playwright/test": "^1.56.1",
-    "@types/node": "^24.9.0"
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^24.12.2"
   }
 }
