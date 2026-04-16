@@ -52,3 +52,24 @@ test.describe('Home Page customer 01 auth', () => {
         await expect(page.getByTestId('nav-menu')).toContainText('Jane Doe');
     });
 });
+
+
+test.describe('Checkout process', () => {
+    test.use({ storageState: '.auth/customer01.json' });
+    test.beforeEach(async ({page}) => {
+        await page.goto('https://practicesoftwaretesting.com/');
+    });
+
+    test('Checkout Thor Hammer', async ({page}) => {
+        await page.getByTestId('search-query').fill('Thor Hammer');
+        await page.getByTestId('search-submit').click();
+        await expect(page.getByAltText("Thor Hammer")).toBeVisible();
+        await page.getByAltText("Thor Hammer").click();
+
+        
+
+
+    });
+
+
+});

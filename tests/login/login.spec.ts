@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../../pages/login/loginPage';
 
-test('login test', async ({ page }) => {
+test('login test without POM', async ({ page }) => {
   await page.goto('https://practicesoftwaretesting.com/');
   await page.locator('[data-test="nav-sign-in"]').click();
   await page.locator('[data-test="email"]').fill('customer@practicesoftwaretesting.com');
@@ -8,4 +9,12 @@ test('login test', async ({ page }) => {
   await page.locator('[data-test="login-submit"]').click();
   await expect(page.locator('[data-test="nav-menu"]')).toContainText('Jane Doe');
   await expect(page.locator('[data-test="page-title"]')).toContainText('My account');
+});
+
+
+test("Login with page object", async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.goto();
+  await loginPage.login('customer@practicesoftwaretesting.com', 'welcome01');
+  await expect(page.getByTestId("nav-menu")).toContainText("Jane Doe");
 });
