@@ -10,7 +10,7 @@ test.describe("Api challenge", () => {
     const productBody = await getProductResponse.json();
     const productId = productBody.data[0].id;
 
-    const response = await request.get(apiUrl + "/products/" + productId); 
+    const response = await request.get(apiUrl + "/products/" + productId);
 
     expect(response.status()).toBe(200);
     const body = await response.json();
