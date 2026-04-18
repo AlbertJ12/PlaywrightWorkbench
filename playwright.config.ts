@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices, expect } from '@playwright/test';
 import { permission } from 'process';
 
 /**
@@ -92,4 +92,21 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
+});
+
+expect.extend({
+  toBeNumber(received: number) {
+    const check = typeof received === 'number';
+    if (check) {
+      return {
+        message: () => `passed`,
+        pass: true,
+      };
+    } else {
+      return {
+        message: () => `toBeNumber expected a number but received ${typeof received}`,
+        pass: false,
+      };
+    }
+  }
 });

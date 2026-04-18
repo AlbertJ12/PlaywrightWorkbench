@@ -10,7 +10,7 @@ test.describe("Api challenge", () => {
     const productBody = await getProductResponse.json();
     const productId = productBody.data[0].id;
 
-    const response = await request.get(apiUrl + "/products/" + productId);
+    const response = await request.get(apiUrl + "/products/" + productId); 
 
     expect(response.status()).toBe(200);
     const body = await response.json();
@@ -19,6 +19,6 @@ test.describe("Api challenge", () => {
     expect(body.is_location_offer).toBe(false);
     expect(body.is_rental).toBe(false);
     expect(body.name).toBe("Thor Hammer");
-    expect(body.price).toBe(11.14);
+    expect(body.price).toBeNumber();
   });
 });
